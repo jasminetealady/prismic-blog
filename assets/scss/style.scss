@@ -1,0 +1,57 @@
+@import "variables";
+@import "spacing";
+@import "flexbox";
+
+@import url("https://fonts.googleapis.com/css?family=Cormorant:400,400i,500,600,700&display=swap");
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  font-family: "Cormorant";
+  color: $charcoal;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: $primarycolor;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1250px;
+  &.mobile {
+    width: 100%;
+  }
+}
+
+svg {
+  path {
+    fill: $primarycolor;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff426d21;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  // background: #9fc5ef;
+  background: $primarycolor;
+}
