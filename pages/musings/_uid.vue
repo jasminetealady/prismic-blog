@@ -1,7 +1,11 @@
 <template>
   <div class="page" :data-wio-id="documentId">
     <nuxt-link to="../">
-      <font-awesome-icon id="back" size="lg" :icon="['fas', 'angle-double-left']" />
+      <font-awesome-icon
+        id="back"
+        size="lg"
+        :icon="['fas', 'angle-double-left']"
+      />
     </nuxt-link>
     <div class="BlogPost">
       <h1>{{ $prismic.richTextAsPlain(document.title) }}</h1>
@@ -95,7 +99,7 @@ a {
   cursor: pointer;
   box-shadow: $boxshadow;
   border-radius: 7px;
-  padding: 2rem 4rem;
+  padding: 4rem;
   border: solid 1px rgba(0, 0, 0, 0.04);
   width: 100%;
   max-width: 800px;
