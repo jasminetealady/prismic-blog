@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-prismic-starter",
+  "name": "Luxe Progressive",
   "version": "1.0.0",
-  "description": "A starter site for Nuxt and Prismic",
-  "author": "Phil Snow and Razelle McCarrick",
+  "description": "A progressive political blog",
+  "author": "Luxe Progressive",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
