@@ -3,6 +3,12 @@ const PrismicConfig = require('./prismic.config');
 
 module.exports = {
   mode: 'spa',
+  vue: {
+    config: {
+      productionTip: true,
+      devtools: true
+    }
+  },
 
   /*
    ** Headers of the page
@@ -55,7 +61,27 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    [
+      'nuxt-fontawesome',
+      {
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['fas']
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['fab']
+          },
+          {
+            set: '@fortawesome/free-regular-svg-icons',
+            icons: ['far']
+          }
+        ]
+      }
+    ]
+  ],
 
   /*
    ** Build configuration
