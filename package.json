@@ -1,7 +1,10 @@
 {
-  "name": "Luxe Progressive",
+  "name": "luxe-progressive",
   "version": "1.0.0",
   "description": "A progressive political blog",
+  "engines": {
+    "node": "11.0.0"
+  },
   "author": "Luxe Progressive",
   "private": true,
   "scripts": {
