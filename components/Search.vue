@@ -6,41 +6,41 @@
 export default {
   data() {
     return {
-      query: ""
-    };
+      query: ''
+    }
   },
   computed: {
     searchQuery: {
       get() {
-        return this.query;
+        return this.query
       },
       set(value) {
-        this.query = value;
-        this.filterBySearch(value);
+        this.query = value
+        this.filterBySearch(value)
       }
     }
   },
   methods: {
     filterBySearch(query) {
-      const Prismic = require("prismic-javascript");
-      this.$store.commit("loading", true);
-      this.$store.commit("setSearchQuery", query);
-      Prismic.getApi("https://luxe-progressive.prismic.io/api/v2")
+      const Prismic = require('prismic-javascript')
+      this.$store.commit('loading', true)
+      this.$store.commit('setSearchQuery', query)
+      Prismic.getApi('https://razelle-prismic.prismic.io/api/v2')
         .then(function(api) {
           return api.query([
-            Prismic.Predicates.at("document.type", "post"),
-            Prismic.Predicates.fulltext("document", query)
-          ]);
+            Prismic.Predicates.at('document.type', 'post'),
+            Prismic.Predicates.fulltext('document', query)
+          ])
         })
-        .then(response => this.$store.commit("setPosts", response.results));
-      this.$store.commit("loading", false);
+        .then(response => this.$store.commit('setPosts', response.results))
+      this.$store.commit('loading', false)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/style.scss";
+@import '@/assets/scss/style.scss';
 input::placeholder {
   text-align: center;
   padding: 0;

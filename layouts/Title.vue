@@ -1,16 +1,16 @@
 <template>
   <div class="title flex-center-column">
-    <h1>Luxe Progressive</h1>
-    <h3>artful progressivism</h3>
+    <h1>Prismic Blog</h1>
+    <h3>introspective thoughts</h3>
   </div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/style.scss";
+@import '@/assets/scss/style.scss';
 .title {
   padding: 4rem 0 2rem 0;
 

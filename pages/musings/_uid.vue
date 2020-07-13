@@ -1,11 +1,7 @@
 <template>
   <div class="page" :data-wio-id="documentId">
     <nuxt-link to="../">
-      <font-awesome-icon
-        id="back"
-        size="lg"
-        :icon="['fas', 'angle-double-left']"
-      />
+      <font-awesome-icon id="back" size="lg" :icon="['fas', 'angle-double-left']" />
     </nuxt-link>
     <div class="BlogPost">
       <h1>{{ $prismic.richTextAsPlain(document.title) }}</h1>
@@ -30,12 +26,12 @@
 </template>
 
 <script>
-import Prismic from "prismic-javascript";
-import PrismicConfig from "~/prismic.config.js";
+import Prismic from 'prismic-javascript'
+import PrismicConfig from '~/prismic.config.js'
 //Importing all the slices components
-import TextSlice from "~/components/slices/TextSlice.vue";
-import QuoteSlice from "~/components/slices/QuoteSlice.vue";
-import ImageCaptionSlice from "~/components/slices/ImageCaptionSlice.vue";
+import TextSlice from '~/components/slices/TextSlice.vue'
+import QuoteSlice from '~/components/slices/QuoteSlice.vue'
+import ImageCaptionSlice from '~/components/slices/ImageCaptionSlice.vue'
 
 export default {
   components: {
@@ -45,16 +41,16 @@ export default {
   },
   head() {
     return {
-      title: `Luxe Progressive: ${this.postTitle}`
-    };
+      title: `Prismic Blog: ${this.postTitle}`
+    }
   },
   async asyncData({ params, error, req }) {
     try {
       // Query to get API object
-      const api = await Prismic.getApi(PrismicConfig.apiEndpoint, { req });
+      const api = await Prismic.getApi(PrismicConfig.apiEndpoint, { req })
 
       // Query to get post content
-      const post = await api.getByUID("post", params.uid);
+      const post = await api.getByUID('post', params.uid)
 
       // Returns data to be used in template
       return {
@@ -62,25 +58,25 @@ export default {
         documentId: post.id,
         slices: post.data.body,
         postTitle: post.data.title[0].text,
-        formattedDate: Intl.DateTimeFormat("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "2-digit"
+        formattedDate: Intl.DateTimeFormat('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: '2-digit'
         }).format(new Date(post.data.date))
-      };
+      }
     } catch (e) {
       // Returns error page
       error({
         statusCode: 404,
-        message: "This blog post could not be retrieved at this time."
-      });
+        message: 'This blog post could not be retrieved at this time.'
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/style.scss";
+@import '@/assets/scss/style.scss';
 
 a {
   color: $primarycolor;

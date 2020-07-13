@@ -28,76 +28,76 @@
 </template>
 
 <script>
-import Title from "./Title";
-import Menu from "../layouts/Menu";
-import Twitter from "../components/icons/TwitterIcon";
-import MenuIcon from "../components/icons/MenuIcon";
-import ExitIcon from "../components/icons/ExitIcon";
-import Search from "../components/Search";
+import Title from './Title'
+import Menu from '../layouts/Menu'
+import Twitter from '../components/icons/TwitterIcon'
+import MenuIcon from '../components/icons/MenuIcon'
+import ExitIcon from '../components/icons/ExitIcon'
+import Search from '../components/Search'
 
 export default {
   components: { Title, Menu, Twitter, MenuIcon, ExitIcon, Search },
   head() {
     return {
-      title: "Luxe Progressive"
-    };
+      title: 'Prismic Blog'
+    }
   },
   data() {
     return {
       overlay: false,
-      menuWidth: "250px",
-      searchMenuHeight: "50px",
-      boxShadow: "0 30px 75px 0 rgba(10, 25, 41, 0.1)"
-    };
+      menuWidth: '250px',
+      searchMenuHeight: '50px',
+      boxShadow: '0 30px 75px 0 rgba(10, 25, 41, 0.1)'
+    }
   },
   methods: {
     toggleSearch() {
       if (!this.searchOpen()) {
-        this.$refs.search.style.top = 0;
-        this.$refs.search.style.boxShadow = this.boxShadow;
+        this.$refs.search.style.top = 0
+        this.$refs.search.style.boxShadow = this.boxShadow
       } else {
-        this.$refs.search.style.top = `-${this.searchMenuHeight}`;
-        this.$refs.search.style.boxShadow = "";
+        this.$refs.search.style.top = `-${this.searchMenuHeight}`
+        this.$refs.search.style.boxShadow = ''
       }
     },
     toggleNav() {
       if (this.navClosed()) {
-        this.$refs.site.style.left = this.menuWidth;
-        this.exitSearch();
-        this.overlay = true;
+        this.$refs.site.style.left = this.menuWidth
+        this.exitSearch()
+        this.overlay = true
       } else {
-        this.$refs.site.style.left = "0px";
-        this.overlay = false;
+        this.$refs.site.style.left = '0px'
+        this.overlay = false
       }
     },
     marginLeft() {
-      return this.$refs.site.style.left;
+      return this.$refs.site.style.left
     },
     searchOpen() {
       return (
-        this.$refs.search.style.top === "0px" ||
-        this.$refs.search.style.top === "0px"
-      );
+        this.$refs.search.style.top === '0px' ||
+        this.$refs.search.style.top === '0px'
+      )
     },
     navClosed() {
-      return this.marginLeft() === "0px" || this.marginLeft() === "";
+      return this.marginLeft() === '0px' || this.marginLeft() === ''
     },
     exitNav() {
       if (!this.navClosed()) {
-        this.toggleNav();
+        this.toggleNav()
       }
     },
     exitSearch() {
       if (this.searchOpen()) {
-        this.toggleSearch();
+        this.toggleSearch()
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/style.scss";
+@import '@/assets/scss/style.scss';
 
 .SiteWrapper {
   position: absolute;

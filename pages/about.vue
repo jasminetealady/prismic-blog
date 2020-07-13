@@ -1,5 +1,5 @@
 <template>
-  <div :class="$mq" class="page">
+  <div :class="$mq" class="page About">
     <h1>About</h1>
     <p
       class
@@ -9,9 +9,21 @@
 
 <script>
 export default {
-  name: "about"
-};
+  name: 'about',
+  head() {
+    return {
+      title: `Prismic Blog: About`
+    }
+  }
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.About {
+  p {
+    padding-top: 24px;
+    line-height: 2;
+    max-width: 1000px;
+  }
+}
 </style>

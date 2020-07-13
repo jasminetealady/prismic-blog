@@ -8,66 +8,66 @@
 </template>
 
 <script>
-import LinkResolver from "~/plugins/link-resolver.js";
-import Pin from "../components/icons/PinIcon";
-import BlogTitle from "../components/BlogTitle";
+import LinkResolver from '~/plugins/link-resolver.js'
+import Pin from '../components/icons/PinIcon'
+import BlogTitle from '../components/BlogTitle'
 
 export default {
   components: {
     Pin,
     BlogTitle
   },
-  props: ["post"],
+  props: ['post'],
   data: function() {
     return {
-      link: "",
-      formattedDate: "",
-      title: ""
-    };
+      link: '',
+      formattedDate: '',
+      title: ''
+    }
   },
-  name: "blog-post",
+  name: 'blog-post',
   methods: {
     // Function to get the first paragraph of text in a blog post and limit the displayed text at 300 characters
     getFirstParagraph(post, characterLimit) {
-      const textLimit = characterLimit;
-      const slices = post.data.body;
-      let firstParagraph = "";
-      let haveFirstParagraph = false;
+      const textLimit = characterLimit
+      const slices = post.data.body
+      let firstParagraph = ''
+      let haveFirstParagraph = false
 
       slices.map(function(slice) {
-        if (!haveFirstParagraph && slice.slice_type == "text") {
+        if (!haveFirstParagraph && slice.slice_type == 'text') {
           slice.primary.text.forEach(function(block) {
-            if (block.type == "paragraph" && !haveFirstParagraph) {
-              firstParagraph += block.text;
-              haveFirstParagraph = true;
+            if (block.type == 'paragraph' && !haveFirstParagraph) {
+              firstParagraph += block.text
+              haveFirstParagraph = true
             }
-          });
+          })
         }
-      });
+      })
 
-      const limitedText = firstParagraph.substr(0, textLimit);
+      const limitedText = firstParagraph.substr(0, textLimit)
 
       if (firstParagraph.length > textLimit) {
-        return limitedText.substr(0, limitedText.lastIndexOf(" ")) + "...";
+        return limitedText.substr(0, limitedText.lastIndexOf(' ')) + '...'
       } else {
-        return firstParagraph;
+        return firstParagraph
       }
     }
   },
   created() {
-    (this.link = LinkResolver(this.post)),
-      (this.formattedDate = Intl.DateTimeFormat("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "2-digit"
-      }).format(new Date(this.post.data.date)));
-    this.title = this.post.data.title;
+    ;(this.link = LinkResolver(this.post)),
+      (this.formattedDate = Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit'
+      }).format(new Date(this.post.data.date)))
+    this.title = this.post.data.title
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/style.scss";
+@import '@/assets/scss/style.scss';
 
 .BlogPost {
   display: flex;

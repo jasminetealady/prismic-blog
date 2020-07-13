@@ -1,5 +1,5 @@
 <template>
-  <a target="_blank" href="https://twitter.com/luxeprogressive">
+  <a target="_blank" href="#">
     <font-awesome-icon id="twitter" size="lg" :icon="['fab', 'twitter']" />
   </a>
 </template>

@@ -11,12 +11,12 @@
 </template>
 <script>
 export default {
-  props: ["error"],
-  layout: "default",
+  props: ['error'],
+  layout: 'default',
   head() {
     return {
-      title: "Luxe Progressive"
-    };
+      title: 'Prismic'
+    }
   }
-};
+}
 </script>

@@ -1,3 +1,3 @@
-# Luxe Progressive Blog
+# Prismic
 
-Private repo.
+A blog that pulls in posts from Prismic's Headless API
