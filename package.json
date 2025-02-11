@@ -23,7 +23,7 @@
     "cookies": "^0.7.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "nuxt": "^2.13.3",
+    "nuxt": "^2.18.1",
     "nuxt-fontawesome": "^0.4.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.0.1",
